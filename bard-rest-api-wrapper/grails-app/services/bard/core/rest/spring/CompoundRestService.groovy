@@ -200,6 +200,7 @@ class CompoundRestService extends AbstractRestService {
         final String query = structureSearchParam.query
         String resource = withCount ? getResource(RestApiConstants._COUNT) : getResource()
         final StringBuilder url = new StringBuilder();
+
         try {
             url.append(resource).append(RestApiConstants.FILTER_QUESTION).append(
                     URLEncoder.encode(query, RestApiConstants.UTF_8)).append(
@@ -226,6 +227,7 @@ class CompoundRestService extends AbstractRestService {
                 url.append(RestApiConstants.CUTOFF).append(String.format('%1$.3f', threshold));
                 break;
         }
+
         url.append(RestApiConstants.AMPERSAND);
         url.append(RestApiConstants.EXPAND_TRUE);
         //we cap this at 100 if top is not supplied
@@ -563,7 +565,8 @@ class CompoundRestService extends AbstractRestService {
             return compoundResult;
         }
         catch (Exception e) {
-            log.error("Futures threw an Exception", e)
+            e.printStackTrace()
+            e.getCause().printStackTrace();
             throw new RestApiException(e)
         }
     }
@@ -598,11 +601,14 @@ class CompoundRestService extends AbstractRestService {
      */
 
     def getStructureCount = { StructureSearchParams params ->
+        params.query = params.query.replace(",Substructure","") // not sure why this makes it into the query str
         String resource = buildStructureSearchURL(params, true)
         return this.getResourceCount(resource)
     }
     def doStructureSearch = { StructureSearchParams structureSearchParams, Map<String, Long> etags ->
         final StructureSearchParams clonedParams = new StructureSearchParams(structureSearchParams)
+
+        clonedParams.query = clonedParams.query.replace(",Substructure","")  // not sure why this makes it into the query str
 
         if (!clonedParams.getSkip()) {
             clonedParams.setSkip(0)
