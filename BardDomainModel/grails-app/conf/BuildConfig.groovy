@@ -25,7 +25,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
 import grails.util.Environment
-def useBroadRepo = System.getProperty("useBroadRepo") != "false"
+def useBroadRepo = false; // System.getProperty("useBroadRepo") != "false"
 grails.project.work.dir = "target"
 grails.project.class.dir = "target/classes"
 grails.project.test.class.dir = "target/test-classes"
