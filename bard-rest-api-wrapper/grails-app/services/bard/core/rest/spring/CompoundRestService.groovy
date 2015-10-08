@@ -527,6 +527,7 @@ class CompoundRestService extends AbstractRestService {
             return compound
         }
         catch (Exception e) {
+            if (e.message.contains("404 Not Found")) return null;
             log.error("Futures threw an Exception", e)
             throw new RestApiException(e)
         }
