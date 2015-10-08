@@ -12,11 +12,12 @@ grails.project.dependency.resolution = {
     }
     //log "warn" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
     repositories {
-        inherits false // Whether to inherit repository definitions from plugins
+        inherits true // Whether to inherit repository definitions from plugins
         grailsPlugins()
         grailsHome()
-        mavenRepo 'http://bard-repo:8081/artifactory/bard-virtual-repo'
-        grailsRepo('http://bard-repo:8081/artifactory/bard-virtual-repo', 'grailsCentral')
+        grailsCentral()
+        mavenLocal()
+        mavenCentral()
     }
 
     plugins {
