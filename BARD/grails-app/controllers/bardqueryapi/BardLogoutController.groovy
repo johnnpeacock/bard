@@ -25,10 +25,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
 package bardqueryapi
-
-import org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils
 import grails.plugins.springsecurity.SpringSecurityService
-import grails.converters.JSON
+import org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils
 
 class BardLogoutController {
 
@@ -45,6 +43,6 @@ class BardLogoutController {
 //        if (mobileService.detect(request) && springSecurityService.isAjax(request)) {
 //            return 'Logged out' as JSON
 //        }
-        redirect uri: SpringSecurityUtils.securityConfig.auth.loginFormUrl
+        redirect uri:  SpringSecurityUtils.securityConfig.successHandler.defaultTargetUrl
     }
 }
