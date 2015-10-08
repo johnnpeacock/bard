@@ -6,7 +6,7 @@ subprojects {
 
     repositories {
         maven {
-            url('http://bard-repo.broadinstitute.org:8081/artifactory/bard-virtual-repo')
+            url('http://carnot.ncats.nih.gov:8101/artifactory/bard-virtual-repo')
         }
     }
 

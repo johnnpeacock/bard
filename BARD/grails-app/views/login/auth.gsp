@@ -72,12 +72,13 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 </div>
 
 <r:script>
+
     var signinLink = document.getElementById('signin');
 
     var request;
-    var returnToUrl = $("#returnToUrl").val();
+    var returnToUrl = $("#returnToUrl").val().replace("http", "https");
 
-    if (window.location.href.match("^https")) {
+    //if (window.location.href.match("^https")) {
         request = {
             siteName: 'BioActivity Research Database',
             siteLogo: bardAppContext + '/images/bard_logo_small.png',   //requires https
@@ -85,12 +86,12 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             privacyPolicy: bardAppContext + '/about/privacyPolicy', //requires https
             returnTo: returnToUrl
         };
-    } else {
-        request = {
-            siteName: 'BioActivity Research Database',
-            returnTo: returnToUrl
-        };
-    }
+    //} else {
+    //    request = {
+    //        siteName: 'BioActivity Research Database',
+    //        returnTo: returnToUrl
+    //    };
+    //}
 
     signinLink.onclick = function () {
         navigator.id.request(request);

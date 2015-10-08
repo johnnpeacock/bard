@@ -24,7 +24,7 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-def useBroadRepo = System.getProperty("useBroadRepo") != "false"
+def useBroadRepo = false; /*System.getProperty("useBroadRepo") != "false"*/
 
 grails.servlet.version = "2.5" // Change depending on target container compliance (2.5 or 3.0)
 grails.project.work.dir = "target"
@@ -56,8 +56,8 @@ grails.project.dependency.resolution = {
             grailsRepo("http://bard-repo.broadinstitute.org:8081/artifactory/bard-virtual-repo", "grailsCentral")
         } else {
             grailsCentral()
-            mavenLocal()
             mavenCentral()
+            mavenLocal()
         }
     }
 
@@ -97,7 +97,7 @@ grails.project.dependency.resolution = {
         }
         compile 'log4j:apache-log4j-extras:1.2.17'
 
-        compile "bard:external-validation-api:20140106"
+        compile "bard:external-validation-api:20140227"
         if (useBroadRepo) {
             // this largely because this lib is only
             // used to run adhoc scripts run at the Broad.
@@ -213,7 +213,7 @@ grails.project.dependency.resolution = {
 grails.plugin.location.'bard-domain-model' = "../BardDomainModel"
 grails.plugin.location.'shopping-cart:0.8.2' = "../shopping-cart-0.8.2"
 grails.plugin.location.'bard-rest-api-wrapper' = "../bard-rest-api-wrapper"
-grails.plugin.location.'functional-spock' = "../functional-spock"
+//grails.plugin.location.'functional-spock' = "../functional-spock"
 codenarc.ruleSetFiles = "file:grails-app/conf/BardCodeNarcRuleSet.groovy"
 
 codenarc.reports = {
