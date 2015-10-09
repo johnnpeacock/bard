@@ -25,15 +25,10 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
 package bard.db.dictionary
-
 import bard.db.enums.AddChildMethod
 import bard.db.enums.ExpectedValueType
 import bard.util.BardCacheUtilsService
 import grails.plugins.springsecurity.SpringSecurityService
-
-import java.util.concurrent.ExecutorService
-import java.util.concurrent.Executors
-
 /**
  * Created with IntelliJ IDEA.
  * User: ddurkin
@@ -90,6 +85,8 @@ class ElementService {
         ExpectedValueType expValType = ExpectedValueType.values().find { val -> val?.name()?.toLowerCase() == expectedValueType?.toLowerCase() }
         def childNodes = []
         final Element parentElement = Element.get(elementId)
+        if (parentElement == null || parentElement.parentHierarchies == null)
+            return childNodes;
         final List<ElementHierarchy> list = new ArrayList(parentElement.parentHierarchies)
         final List<ElementHierarchy> hierarchies = list.findAll { it.relationshipType == 'subClassOf' }
         Set<Element> seenSet = new HashSet<Element>()
