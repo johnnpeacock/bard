@@ -58,6 +58,9 @@ grails.project.dependency.resolution = {
     }
 
     dependencies {
+        build 'com.zaxxer:HikariCP:2.4.1'
+        compile 'com.zaxxer:HikariCP:2.4.1'
+
         build 'com.oracle:ojdbc6:11.2.0.2.0'
         test "org.spockframework:spock-grails-support:0.7-groovy-2.0"
         compile 'org.apache.commons:commons-lang3:3.1'
