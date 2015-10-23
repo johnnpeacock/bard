@@ -67,6 +67,9 @@ grails.project.dependency.resolution = {
 
         // compile scope
 
+        compile 'com.zaxxer:HikariCP:2.2.1'
+        runtime 'com.zaxxer:HikariCP:2.2.1'
+
         compile "net.logstash.log4j:jsonevent-layout:1.5"
         compile "org.grails:grails-webflow:$grailsVersion"
         compile "org.apache.httpcomponents:httpclient:4.2.3"
