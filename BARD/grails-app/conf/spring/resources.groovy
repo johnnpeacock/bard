@@ -35,6 +35,7 @@ import bard.core.rest.spring.*
 import bard.core.util.ExternalUrlDTO
 import bard.db.ReadyForExtractFlushListener
 import bard.db.util.BardEditorRegistrar
+import bard.db.HikariDataSource
 import bard.hibernate.ModifiedByListener
 import bard.validation.extext.BardExternalOntologyFactory
 import bardqueryapi.ETagsService
@@ -51,6 +52,8 @@ import persona.PersonaAuthenticationProvider
 
 // Place your Spring DSL code here
 beans = {
+
+    dataSource(HikariDataSource)
 
     externalOntologyFactory(bard.validation.extext.BardExternalOntologyFactory){bean ->
         bean.autowire = "byName"
