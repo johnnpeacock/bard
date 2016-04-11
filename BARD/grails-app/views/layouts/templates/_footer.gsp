@@ -80,8 +80,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
                     <ul>
                         <li><g:link controller="about" action="bardArchitecture">Architecture &amp; Design</g:link></li>
                         <li><a href="https://github.com/ncatsdpiprobedev/bard/wiki">REST API</a></li>
-                        <li>Source code on GitHub: <a href="https://github.com/broadinstitute/BARD">UI</a>
-				<a href="https://github.com/ncatsdpiprobedev/bard">Warehouse</a></li>
+                        <li>Source code on GitHub: <a href="https://spotlite.nih.gov/ncats/bardweb">UI</a>
+				<a href="https://github.com/ncats/bard">Warehouse</a></li>
                     </ul>
                 </div>
 
