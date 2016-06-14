@@ -250,6 +250,7 @@ class ExperimentRestService extends AbstractRestService {
             final String urlString = buildSearchByCapIdURLs(capIds, searchParams, "capExptId:")
             urlString.replaceAll("true", expandedSearch.toString())
             final URL url = new URL(urlString)
+            log.info(urlString)
             final HttpEntity<ExperimentSearchResult> exchange = getExchange(url.toURI(), entity, ExperimentSearchResult.class) as HttpEntity<ExperimentSearchResult>
             final ExperimentSearchResult experimentSearchResult = exchange.getBody()
 
