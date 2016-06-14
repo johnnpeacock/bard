@@ -168,6 +168,7 @@ class AssayRestService extends AbstractRestService {
         //just passing in the string would cause the URI to be encoded twice
         //see http://static.springsource.org/spring/docs/3.0.x/javadoc-api/org/springframework/web/client/RestTemplate.html
         final URL url = new URL(urlString)
+        log.info(urlString)
         final AssayResult assayResult = (AssayResult) getForObject(url.toURI(), AssayResult.class)
         return assayResult
     }

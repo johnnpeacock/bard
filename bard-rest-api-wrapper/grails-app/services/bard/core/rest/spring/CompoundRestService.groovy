@@ -328,6 +328,7 @@ class CompoundRestService extends AbstractRestService {
             addETagsToHTTPHeader(headers, etags)
             final HttpEntity entity = new HttpEntity(map, headers);
             final String url = buildURLToPostIds()
+            log.info(url)
             final HttpEntity<List> exchange = postExchange(url, entity, List.class) as HttpEntity<List>
             final List<Compound> compounds = exchange.getBody()
             headers = exchange.getHeaders()
