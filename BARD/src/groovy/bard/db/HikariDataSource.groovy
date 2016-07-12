@@ -30,7 +30,8 @@ class HikariDataSource extends DelegatingDataSource {
       System.out.println("Intializing "+getClass()+"..."+config.driveClassName)
       setTargetDataSource(new com.zaxxer.hikari.HikariDataSource(
             driverClassName: config.driverClassName, password: config.password,
-            username: config.username, jdbcUrl: config.url))
+            username: config.username, jdbcUrl: config.url,
+	    maximumPoolSize: config.maxPoolSize))
  
       _initialized = true
    }
